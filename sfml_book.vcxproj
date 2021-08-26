@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ADFBEB67-1ABC-4394-8EF1-F3E1517CF131}</ProjectGuid>
+    <RootNamespace>sfml_book</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\source;D:\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-system-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\source;D:\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>D:\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-system.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Aircraft.cpp" />
+    <ClCompile Include="source\Button.cpp" />
+    <ClCompile Include="source\Command.cpp" />
+    <ClCompile Include="source\CommandQueue.cpp" />
+    <ClCompile Include="source\Component.cpp" />
+    <ClCompile Include="source\Container.cpp" />
+    <ClCompile Include="source\DataTables.cpp" />
+    <ClCompile Include="source\EmitterNode.cpp" />
+    <ClCompile Include="source\Entity.cpp" />
+    <ClCompile Include="source\Application.cpp" />
+    <ClCompile Include="source\GameState.cpp" />
+    <ClCompile Include="source\Label.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\MenuState.cpp" />
+    <ClCompile Include="source\ParticleNode.cpp" />
+    <ClCompile Include="source\PauseState.cpp" />
+    <ClCompile Include="source\Pickup.cpp" />
+    <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\Projectile.cpp" />
+    <ClCompile Include="source\SceneNode.cpp" />
+    <ClCompile Include="source\SettingsState.cpp" />
+    <ClCompile Include="source\SpriteNode.cpp" />
+    <ClCompile Include="source\State.cpp" />
+    <ClCompile Include="source\StateStack.cpp" />
+    <ClCompile Include="source\TextNode.cpp" />
+    <ClCompile Include="source\TitleState.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\source;D:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\source;D:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level4</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="source\Utility.cpp" />
+    <ClCompile Include="source\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Aircraft.h" />
+    <ClInclude Include="source\Button.h" />
+    <ClInclude Include="source\Category.h" />
+    <ClInclude Include="source\Command.h" />
+    <ClInclude Include="source\CommandQueue.h" />
+    <ClInclude Include="source\Component.h" />
+    <ClInclude Include="source\Container.h" />
+    <ClInclude Include="source\DataTables.h" />
+    <ClInclude Include="source\EmitterNode.h" />
+    <ClInclude Include="source\Entity.h" />
+    <ClInclude Include="source\Application.h" />
+    <ClInclude Include="source\GameState.h" />
+    <ClInclude Include="source\Label.h" />
+    <ClInclude Include="source\MenuState.h" />
+    <ClInclude Include="source\Particle.h" />
+    <ClInclude Include="source\ParticleNode.h" />
+    <ClInclude Include="source\PauseState.h" />
+    <ClInclude Include="source\Pickup.h" />
+    <ClInclude Include="source\Player.h" />
+    <ClInclude Include="source\Projectile.h" />
+    <ClInclude Include="source\ResourceHolder.h" />
+    <ClInclude Include="source\ResourceIdentifiers.h" />
+    <ClInclude Include="source\SceneNode.h" />
+    <ClInclude Include="source\SettingsState.h" />
+    <ClInclude Include="source\SpriteNode.h" />
+    <ClInclude Include="source\State.h" />
+    <ClInclude Include="source\StateIdentifiers.h" />
+    <ClInclude Include="source\StateStack.h" />
+    <ClInclude Include="source\TextNode.h" />
+    <ClInclude Include="source\TitleState.h" />
+    <ClInclude Include="source\Utility.h" />
+    <ClInclude Include="source\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\ResourceHolder.inl" />
+    <None Include="source\Utility.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

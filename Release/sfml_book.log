@@ -1,0 +1,71 @@
+﻿Build started 26.08.2021 18:58:19.
+     1>Project "D:\C++ learning\sfml_book\sfml_book.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\VS\VC\bin\CL.exe /c /I"D:\SFML-2.4.2\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Aircraft.cpp Button.cpp Command.cpp CommandQueue.cpp Component.cpp Container.cpp DataTables.cpp EmitterNode.cpp Entity.cpp Application.cpp GameState.cpp Label.cpp main.cpp MenuState.cpp ParticleNode.cpp PauseState.cpp Pickup.cpp Player.cpp Projectile.cpp SceneNode.cpp SettingsState.cpp SpriteNode.cpp State.cpp StateStack.cpp TextNode.cpp Utility.cpp World.cpp
+         Aircraft.cpp
+         Button.cpp
+         Command.cpp
+         CommandQueue.cpp
+         Component.cpp
+         Container.cpp
+         DataTables.cpp
+         EmitterNode.cpp
+         Entity.cpp
+         Application.cpp
+         GameState.cpp
+         Label.cpp
+         main.cpp
+         MenuState.cpp
+         ParticleNode.cpp
+         PauseState.cpp
+         Pickup.cpp
+         Player.cpp
+         Projectile.cpp
+         SceneNode.cpp
+         Compiling...
+         SettingsState.cpp
+         SpriteNode.cpp
+         State.cpp
+         StateStack.cpp
+         TextNode.cpp
+         Utility.cpp
+         World.cpp
+         D:\VS\VC\bin\CL.exe /c /I"D:\C++ learning\sfml_book\\source" /I"D:\SFML-2.4.2\include" /I"D:\SFML-2.4.2\include" /Zi /nologo /W4 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt TitleState.cpp
+         TitleState.cpp
+       Link:
+         D:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C++ learning\sfml_book\Release\sfml_book.exe" /NOLOGO /LIBPATH:"D:\SFML-2.4.2\lib" "sfml-graphics.lib" "sfml-window.lib" "sfml-audio.lib" "sfml-system.lib" "sfml-network.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\C++ learning\sfml_book\Release\sfml_book.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C++ learning\sfml_book\Release\sfml_book.lib" /MACHINE:X86 /SAFESEH Release\Aircraft.obj
+         Release\Button.obj
+         Release\Command.obj
+         Release\CommandQueue.obj
+         Release\Component.obj
+         Release\Container.obj
+         Release\DataTables.obj
+         Release\EmitterNode.obj
+         Release\Entity.obj
+         Release\Application.obj
+         Release\GameState.obj
+         Release\Label.obj
+         Release\main.obj
+         Release\MenuState.obj
+         Release\ParticleNode.obj
+         Release\PauseState.obj
+         Release\Pickup.obj
+         Release\Player.obj
+         Release\Projectile.obj
+         Release\SceneNode.obj
+         Release\SettingsState.obj
+         Release\SpriteNode.obj
+         Release\State.obj
+         Release\StateStack.obj
+         Release\TextNode.obj
+         Release\TitleState.obj
+         Release\Utility.obj
+         Release\World.obj
+         Generating code
+         Finished generating code
+         sfml_book.vcxproj -> D:\C++ learning\sfml_book\Release\sfml_book.exe
+     1>Done Building Project "D:\C++ learning\sfml_book\sfml_book.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:01:00.96

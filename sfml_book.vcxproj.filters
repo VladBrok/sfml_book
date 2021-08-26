@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Scene nodes">
+      <UniqueIdentifier>{d6bc2678-2a18-4b68-b210-5960f42170ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource holder">
+      <UniqueIdentifier>{84d3dc49-4431-48c2-bf4e-2cb7a576bf2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{011ceb65-9470-408d-86ef-8b980ad22e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{206a03db-c3a1-4fc9-8ed8-bcba156e3ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{c8e74745-d3f4-45f4-a73d-edd8cecef8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{879da95b-8209-4005-975f-299c14815274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{cb2e01d9-2255-4153-bdd7-dfc2f6492e3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{c846833f-ba4e-4b21-ba92-8442bc365e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{58c0c75f-5281-463e-b97a-d82dd8cd4a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{766f612a-2b1e-4fd6-ab5c-a03dd306f7bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data tables">
+      <UniqueIdentifier>{dbd46301-d755-4d7a-8192-013c56f79550}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Visual effects">
+      <UniqueIdentifier>{4478716d-e2d6-40d2-af9c-79b9b3ece81b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Aircraft.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entity.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SceneNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SpriteNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Command.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CommandQueue.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Application.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\State.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StateStack.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\TitleState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PauseState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Label.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Container.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Button.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SettingsState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DataTables.cpp">
+      <Filter>Data tables</Filter>
+    </ClCompile>
+    <ClCompile Include="source\TextNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Projectile.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Pickup.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ParticleNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EmitterNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Aircraft.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Entity.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SceneNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SpriteNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResourceHolder.h">
+      <Filter>Resource holder</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResourceIdentifiers.h">
+      <Filter>Resource holder</Filter>
+    </ClInclude>
+    <ClInclude Include="source\World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Command.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CommandQueue.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Category.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Application.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\StateIdentifiers.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\State.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\StateStack.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\TitleState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PauseState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MenuState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Label.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Container.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Button.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SettingsState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DataTables.h">
+      <Filter>Data tables</Filter>
+    </ClInclude>
+    <ClInclude Include="source\TextNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Projectile.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Pickup.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle.h">
+      <Filter>Visual effects</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ParticleNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EmitterNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\ResourceHolder.inl">
+      <Filter>Resource holder</Filter>
+    </None>
+    <None Include="source\Utility.inl">
+      <Filter>Utilities</Filter>
+    </None>
+  </ItemGroup>
+</Project>
