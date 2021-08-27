@@ -5,6 +5,7 @@
 #include "TextNode.h"
 #include "CommandQueue.h"
 #include "Pickup.h"
+
 #include "SFML/Graphics/RenderTarget.hpp"
 #include <iostream>
 
@@ -29,7 +30,9 @@ Aircraft::Aircraft(const Type type, const TextureHolder& textures, const FontHol
       mIsFiring(false),
       mIsLaunchingMissile(false),
       mSpreadLevel(1),
-      mIsMarkedForRemoval(false)
+      mSpawnedPickup(false),
+      mShowExplosion(true),
+      mExplosion(textures.get(Textures::Explosion))
 {
     util::centerOrigin(mSprite);
 
@@ -65,6 +68,15 @@ Aircraft::Aircraft(const Type type, const TextureHolder& textures, const FontHol
     {
         createPickup(node, textures);
     };
+
+
+    // Animations setup
+
+    mExplosion.setFrameSize(sf::Vector2i(256, 256));
+    mExplosion.setFramesCount(16);
+    mExplosion.setDuration(sf::seconds(1.f));
+
+    util::centerOrigin(mExplosion);
 }
 
 
@@ -85,6 +97,13 @@ float Aircraft::getMaxSpeed() const
 sf::FloatRect Aircraft::getBoundingRect() const
 {
     return getWorldTransform().transformRect(mSprite.getGlobalBounds());
+}
+
+
+void Aircraft::remove()
+{
+    Entity::remove();
+    mShowExplosion = false;
 }
 
 
@@ -128,7 +147,7 @@ void Aircraft::increaseSpread()
 
 void Aircraft::increaseFireRate()
 {
-    if (mFireRateLevel < 10)
+    if (mFireRateLevel < 7)
     {
         ++mFireRateLevel;
     }
@@ -137,12 +156,14 @@ void Aircraft::increaseFireRate()
 
 void Aircraft::updateCurrent(const sf::Time dt, CommandQueue& commands)
 {
+    updateTexts();
     if (isDestroyed())
     {
         checkPickupDrop(commands);
-        mIsMarkedForRemoval = true;
+        mExplosion.update(dt);
         return;
     }
+    updateRollAnimation();
     checkProjectileLaunch(dt, commands);
     updateTexts();
     updateMovementPattern(dt);
@@ -175,8 +196,41 @@ void Aircraft::updateMovementPattern(const sf::Time dt)
 }
 
 
+void Aircraft::updateRollAnimation()
+{
+    if (DATA_TABLE[mType].hasRollAnimation)
+    {
+        sf::IntRect textureRect(DATA_TABLE[mType].textureRect);
+
+        // Roll left
+        if (getVelocity().x < 0.f)
+        {
+            textureRect.left += textureRect.width;
+        }
+
+        // Roll right
+        else if (getVelocity().x > 0.f)
+        {
+            textureRect.left += textureRect.width * 2;
+        }
+
+        mSprite.setTextureRect(textureRect);
+    }
+}
+
+
 void Aircraft::updateTexts()
 {
+    if (isDestroyed())
+    {
+        mHealthDisplay->setString("");
+        if (isAllied())
+        {
+            mMissileDisplay->setString("");
+        }
+        return;
+    }
+
     mHealthDisplay->setString(util::toString(getHitpoints()) + " HP");
     mHealthDisplay->setPosition(0.f, 50.f);
     mHealthDisplay->setRotation(-getRotation());
@@ -192,7 +246,14 @@ void Aircraft::updateTexts()
 
 void Aircraft::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(mSprite, states);
+    if (isDestroyed() && mShowExplosion)
+    {
+        target.draw(mExplosion, states);
+    }
+    else
+    {
+        target.draw(mSprite, states);
+    }
 }
 
 
@@ -227,11 +288,12 @@ void Aircraft::checkProjectileLaunch(const sf::Time dt, CommandQueue& commands)
 
 
 void Aircraft::checkPickupDrop(CommandQueue& commands)
-{
-    if (!isAllied() && rand() % 2 == 0)
+{  
+    if (!isAllied() && rand() % 3 == 0 && !mSpawnedPickup)
     {
-        commands.push(mDropPickupCommand);
+        commands.push(mDropPickupCommand); 
     }
+    mSpawnedPickup = true;
 }
 
 
@@ -300,5 +362,5 @@ bool Aircraft::isAllied() const
 
 bool Aircraft::isMarkedForRemoval() const
 {
-    return mIsMarkedForRemoval;
+    return isDestroyed() && (!mShowExplosion || mExplosion.isFinished());
 }

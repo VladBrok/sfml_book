@@ -1,8 +1,9 @@
 #pragma once
 #include "Entity.h"
 #include "ResourceIdentifiers.h"
-#include "Command.h"
 #include "Projectile.h"
+#include "Command.h"
+#include "Animation.h"
 #include "SFML/Graphics/Sprite.hpp"
 
 class TextNode;
@@ -29,6 +30,7 @@ public:
     float                   getMaxSpeed() const;
     virtual sf::FloatRect   getBoundingRect() const;
 
+    virtual void            remove();
     void                    fire();
     void                    launchMissile();
 
@@ -40,6 +42,7 @@ public:
 private:
     virtual void            updateCurrent(const sf::Time dt, CommandQueue& commands);
     void                    updateMovementPattern(const sf::Time dt);
+    void                    updateRollAnimation();
     void                    updateTexts();
     virtual void            drawCurrent(sf::RenderTarget& target, 
                                         sf::RenderStates states) const final;
@@ -77,6 +80,8 @@ private:
     Command                 mMissileCommand;
     Command                 mDropPickupCommand;
 
-    bool                    mIsMarkedForRemoval;
+    bool                    mSpawnedPickup;
+    bool                    mShowExplosion;
+    Animation               mExplosion;
 };
 

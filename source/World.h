@@ -5,23 +5,21 @@
 #include "SpriteNode.h"
 #include "Aircraft.h"
 #include "CommandQueue.h"
+#include "BloomEffect.h"
 
 #include "SFML/System/NonCopyable.hpp"
 #include "SFML/Graphics/View.hpp"
 #include "SFML/Graphics/Texture.hpp"
+#include "SFML/Graphics/RenderTarget.hpp"
 
 #include <array>
-
-namespace sf
-{
-    class RenderWindow;
-}
 
 
 class World
 {
 public:
-    explicit                           World(sf::RenderWindow& window, FontHolder& fonts);
+    explicit                           World(sf::RenderTarget& outputTarget, FontHolder& fonts);
+
     void                               update(const sf::Time dt);
     void                               draw();
 
@@ -76,7 +74,8 @@ private:
 
 
 private:
-    sf::RenderWindow&                  mWindow;
+    sf::RenderTarget&                  mTarget;
+    sf::RenderTexture                  mSceneTexture;
     sf::View                           mWorldView;
     TextureHolder                      mTextures;
     FontHolder&                        mFonts;
@@ -88,10 +87,12 @@ private:
     sf::FloatRect                      mWorldBounds;
     sf::Vector2f                       mSpawnPosition;
     float                              mScrollSpeed;
-    Aircraft*                          mPlayerAircraft; // FIXME: This pointer becomes invalid as soon as player dies
+    Aircraft*                          mPlayerAircraft; // FIXME: This pointer becomes invalid as soon as the player dies
 
     std::list<SpawnPoint>              mEnemySpawnPoints;
     std::list<Aircraft*>               mActiveEnemies;
+
+    BloomEffect                        mBloomEffect;
 };
 
 

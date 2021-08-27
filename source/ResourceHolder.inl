@@ -23,7 +23,7 @@ void ResourceHolder<Resource, Identifier>::load(const Identifier& id,
     {
         throw std::runtime_error("ResourceHolder::load - Failed to load " + filename);
     }
-    insertResource(id, resource);
+    insertResource(id, std::move(resource));
 }
 
 

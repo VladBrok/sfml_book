@@ -71,6 +71,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Aircraft.cpp" />
+    <ClCompile Include="source\Animation.cpp" />
+    <ClCompile Include="source\BloomEffect.cpp" />
     <ClCompile Include="source\Button.cpp" />
     <ClCompile Include="source\Command.cpp" />
     <ClCompile Include="source\CommandQueue.cpp" />
@@ -88,6 +90,7 @@
     <ClCompile Include="source\PauseState.cpp" />
     <ClCompile Include="source\Pickup.cpp" />
     <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\PostEffect.cpp" />
     <ClCompile Include="source\Projectile.cpp" />
     <ClCompile Include="source\SceneNode.cpp" />
     <ClCompile Include="source\SettingsState.cpp" />
@@ -105,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Aircraft.h" />
+    <ClInclude Include="source\Animation.h" />
+    <ClInclude Include="source\BloomEffect.h" />
     <ClInclude Include="source\Button.h" />
     <ClInclude Include="source\Category.h" />
     <ClInclude Include="source\Command.h" />
@@ -123,6 +128,7 @@
     <ClInclude Include="source\PauseState.h" />
     <ClInclude Include="source\Pickup.h" />
     <ClInclude Include="source\Player.h" />
+    <ClInclude Include="source\PostEffect.h" />
     <ClInclude Include="source\Projectile.h" />
     <ClInclude Include="source\ResourceHolder.h" />
     <ClInclude Include="source\ResourceIdentifiers.h" />

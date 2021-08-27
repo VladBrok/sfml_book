@@ -2,14 +2,14 @@
 #include "Utility.h"
 #include "Pickup.h"
 #include "ParticleNode.h"
-#include "SFML/Graphics/RenderWindow.hpp"
 
+#include <ctime>
 #include <iostream>
 
 
-World::World(sf::RenderWindow& window, FontHolder& fonts)
-    : mWindow(window),
-      mWorldView(window.getDefaultView()),
+World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
+    : mTarget(outputTarget),
+      mWorldView(outputTarget.getDefaultView()),
       mFonts(fonts),
       mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 5000.f),
       mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f),
@@ -17,6 +17,8 @@ World::World(sf::RenderWindow& window, FontHolder& fonts)
       mPlayerAircraft(nullptr)
 {
     srand((unsigned)time(nullptr));
+
+    mSceneTexture.create(mTarget.getSize().x, mTarget.getSize().y);
 
     loadTextures();
     buildScene();
@@ -115,7 +117,7 @@ void World::addEnemySpawnPoint(const Aircraft::Type type,
 void World::addEnemies()
 {
     // Add enemies to the spawn point container
-    addEnemySpawnPoint(Aircraft::Raptor,    0.f,  500.f);
+    addEnemySpawnPoint(Aircraft::Raptor,    0.f,  700.f);
     addEnemySpawnPoint(Aircraft::Raptor,    0.f, 1000.f);
     addEnemySpawnPoint(Aircraft::Raptor, +100.f, 1150.f);
     addEnemySpawnPoint(Aircraft::Raptor, -100.f, 1150.f);
@@ -161,7 +163,7 @@ void World::removeEnemiesOutsideView()
     {
         if (!getBattlefieldBounds().intersects(entity.getBoundingRect()))
         {
-            entity.destroy();
+            entity.remove();
         }
     });
     mCommandQueue.push(command);
@@ -178,7 +180,7 @@ void World::guideMissiles()
     {
         if (!enemy.isDestroyed())
         {
-            mActiveEnemies.push_back(&enemy); // FIXME !!!!!: pushing in the local list captured by reference
+            mActiveEnemies.push_back(&enemy);
         }
     });
 
@@ -240,9 +242,20 @@ sf::FloatRect World::getBattlefieldBounds() const
 
 void World::draw()
 {
-    mWindow.setView(mWorldView);
-    mWindow.draw(mSceneGraph);
-    mWindow.setView(mWindow.getDefaultView());
+    if (PostEffect::isSupported())
+    {
+        mSceneTexture.clear();
+        mSceneTexture.setView(mWorldView);
+        mSceneTexture.draw(mSceneGraph);
+        mSceneTexture.display();
+        mBloomEffect.apply(mSceneTexture, mTarget);
+    }
+    else
+    {
+        mTarget.setView(mWorldView);
+        mTarget.draw(mSceneGraph);
+        mTarget.setView(mTarget.getDefaultView());
+    }
 }
 
 
@@ -258,6 +271,7 @@ void World::loadTextures()
     mTextures.load(Textures::Jungle,     "Media/Textures/Jungle.png");
     mTextures.load(Textures::FinishLine, "Media/Textures/FinishLine.png");
     mTextures.load(Textures::Particle,   "Media/Textures/Particle.png");
+    mTextures.load(Textures::Explosion,  "Media/Textures/Explosion.png");
 }
 
 

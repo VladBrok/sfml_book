@@ -18,8 +18,8 @@ Application::Application()
 {
     mWindow.setFramerateLimit(60);
 
-    mTextures.load(Textures::TitleScreen,    "Media/Textures/TitleScreen.png");
-    mTextures.load(Textures::Buttons,        "Media/Textures/Buttons.png");
+    mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+    mTextures.load(Textures::Buttons,     "Media/Textures/Buttons.png");
 
     mFonts.load(Fonts::Main, "Media/Sansation.ttf");
     mStatisticsText.setFont(mFonts.get(Fonts::Main));

@@ -127,6 +127,15 @@
     <ClCompile Include="source\EmitterNode.cpp">
       <Filter>Scene nodes</Filter>
     </ClCompile>
+    <ClCompile Include="source\Animation.cpp">
+      <Filter>Visual effects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostEffect.cpp">
+      <Filter>Visual effects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\BloomEffect.cpp">
+      <Filter>Visual effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Aircraft.h">
@@ -224,6 +233,15 @@
     </ClInclude>
     <ClInclude Include="source\EmitterNode.h">
       <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Animation.h">
+      <Filter>Visual effects</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PostEffect.h">
+      <Filter>Visual effects</Filter>
+    </ClInclude>
+    <ClInclude Include="source\BloomEffect.h">
+      <Filter>Visual effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

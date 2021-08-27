@@ -9,7 +9,13 @@ public:
 
     void                   repair(const int points);
     void                   damage(const int points);
+
+    // Call when the entity is destroyed by another entity
     void                   destroy();
+
+    // Call when the entity is ouside the visible area
+    virtual void           remove();
+
     virtual bool           isDestroyed() const;
     int                    getHitpoints() const;
 

@@ -12,8 +12,7 @@ public:
 
 
 private:
-    virtual void      updateCurrent(const sf::Time dt, CommandQueue& commands);
-                      
+    virtual void      updateCurrent(const sf::Time dt, CommandQueue& commands);                    
     void              emitParticles(const sf::Time dt);
 
 

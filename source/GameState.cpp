@@ -1,5 +1,5 @@
 #include "GameState.h"
-//#include "SFML/Graphics/RenderWindow.hpp"
+#include "SFML/Graphics/RenderWindow.hpp"
 
 
 GameState::GameState(StateStack& stack, Context context)
