@@ -14,11 +14,15 @@
 
 #include <array>
 
+class SoundPlayer;
+
 
 class World
 {
 public:
-    explicit                           World(sf::RenderTarget& outputTarget, FontHolder& fonts);
+    explicit                           World(sf::RenderTarget& outputTarget, 
+                                             FontHolder& fonts,
+                                             SoundPlayer& sounds);
 
     void                               update(const sf::Time dt);
     void                               draw();
@@ -44,6 +48,8 @@ private:
 
     sf::FloatRect                      getViewBounds() const;
     sf::FloatRect                      getBattlefieldBounds() const;
+
+    void                               updateSounds();
 
 private:
     enum Layer
@@ -93,6 +99,7 @@ private:
     std::list<Aircraft*>               mActiveEnemies;
 
     BloomEffect                        mBloomEffect;
+    SoundPlayer&                       mSounds;
 };
 
 

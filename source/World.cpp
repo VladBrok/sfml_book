@@ -2,19 +2,22 @@
 #include "Utility.h"
 #include "Pickup.h"
 #include "ParticleNode.h"
+#include "SoundNode.h"
+#include "SoundPlayer.h"
 
 #include <ctime>
 #include <iostream>
 
 
-World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
+World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sounds)
     : mTarget(outputTarget),
       mWorldView(outputTarget.getDefaultView()),
       mFonts(fonts),
       mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 5000.f),
       mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f),
       mScrollSpeed(-50.f),
-      mPlayerAircraft(nullptr)
+      mPlayerAircraft(nullptr),
+      mSounds(sounds)
 {
     srand((unsigned)time(nullptr));
 
@@ -49,6 +52,8 @@ void World::update(const sf::Time dt)
 
     mSceneGraph.update(dt, mCommandQueue);
     adaptPlayerPosition();
+
+    updateSounds();
 }
 
 
@@ -240,6 +245,13 @@ sf::FloatRect World::getBattlefieldBounds() const
 }
 
 
+void World::updateSounds()
+{
+    mSounds.setListenerPosition(mPlayerAircraft->getWorldPosition() + sf::Vector2f(0.f, -10.f));
+    mSounds.removeStoppedSounds();
+}
+
+
 void World::draw()
 {
     if (PostEffect::isSupported())
@@ -316,6 +328,11 @@ void World::buildScene()
     std::unique_ptr<ParticleNode> propellantNode(new ParticleNode(Particle::Propellant, mTextures));
     mSceneLayers[LowerAir]->attachChild(propellantNode.release());
 
+    
+    // Add sound effect node
+    std::unique_ptr<SoundNode> soundNode(new SoundNode(mSounds));
+    mSceneGraph.attachChild(soundNode.release());
+
 
     // Add player's aircraft
     std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Eagle, mTextures, mFonts));
@@ -358,6 +375,8 @@ void World::handleCollisions()
             // Apply pickup effect to player, destroy pickup
             pickup->apply(*player);
             pickup->destroy();
+
+            player->playLocalSound(mCommandQueue, SoundEffects::CollectPickup);
         }
         else if (matchesCategories(pair, Category::EnemyAircraft, Category::AlliedProjectile)
                     || matchesCategories(pair, Category::PlayerAircraft, Category::EnemyProjectile))

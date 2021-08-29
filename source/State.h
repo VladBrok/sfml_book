@@ -11,6 +11,8 @@ namespace sf
 }
 class Player;
 class StateStack;
+class MusicPlayer;
+class SoundPlayer;
 
 
 class State
@@ -23,16 +25,21 @@ public:
                           Context(sf::RenderWindow& window,
                                   TextureHolder& textures,
                                   FontHolder& fonts,
-                                  Player& player);
+                                  Player& player,
+                                  MusicPlayer& musicPlayer,
+                                  SoundPlayer& soundPlayer);
         sf::RenderWindow* window;
         TextureHolder*    textures;
         FontHolder*       fonts;
         Player*           player;
+        MusicPlayer*      music;
+        SoundPlayer*      sounds;
     };
 
 
 public:
                       State(StateStack& stack, Context context);
+    virtual           ~State(){};
     virtual bool      handleEvent(const sf::Event& event) = 0;
     virtual bool      update(const sf::Time dt) = 0;
     virtual void      draw() = 0;

@@ -38,6 +38,9 @@ public:
     void                    increaseSpread();
     void                    increaseFireRate();
 
+    void                    playLocalSound(CommandQueue& commands,
+                                           const SoundEffects::ID effect);
+
 
 private:
     virtual void            updateCurrent(const sf::Time dt, CommandQueue& commands);
@@ -80,6 +83,7 @@ private:
     Command                 mMissileCommand;
     Command                 mDropPickupCommand;
 
+    bool                    mPlayedExplosionSound;
     bool                    mSpawnedPickup;
     bool                    mShowExplosion;
     Animation               mExplosion;

@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <map>
 #include <memory>
 #include <stdexcept>
 #include <cassert>
@@ -26,7 +27,7 @@ private:
 
 private:
 
-    std::unordered_map<Identifier, std::unique_ptr<Resource>> mResourceMap; 
+    std::map<Identifier, std::shared_ptr<Resource>> mResourceMap; 
 };
 
 #include "ResourceHolder.inl"

@@ -8,11 +8,12 @@ namespace gui
 {
 
 
-Button::Button(const FontHolder& fonts, const TextureHolder& textures)
+Button::Button(State::Context context)
     : mCallback(nullptr),
-      mButtonsTexture(textures.get(Textures::Buttons)),
-      mText("", fonts.get(Fonts::Main), 16),
-      mIsToggle(false)
+      mButtonsTexture(context.textures->get(Textures::Buttons)),
+      mText("", context.fonts->get(Fonts::Main), 16),
+      mIsToggle(false),
+      mSounds(*context.sounds)
 {
     mSprite.setTexture(mButtonsTexture);
     changeTexture(Normal);
@@ -77,9 +78,9 @@ void Button::activate()
     {
         mCallback();
     }
-
     mIsToggle ? changeTexture(Pressed) : deactivate();
 
+    mSounds.play(SoundEffects::Button);
 }
 
 

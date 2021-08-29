@@ -41,6 +41,9 @@
     <Filter Include="Visual effects">
       <UniqueIdentifier>{4478716d-e2d6-40d2-af9c-79b9b3ece81b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sounds and Music">
+      <UniqueIdentifier>{b5671766-cc47-4299-873e-5a186a14262c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Aircraft.cpp">
@@ -135,6 +138,15 @@
     </ClCompile>
     <ClCompile Include="source\BloomEffect.cpp">
       <Filter>Visual effects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MusicPlayer.cpp">
+      <Filter>Sounds and Music</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SoundNode.cpp">
+      <Filter>Scene nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SoundPlayer.cpp">
+      <Filter>Sounds and Music</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +254,15 @@
     </ClInclude>
     <ClInclude Include="source\BloomEffect.h">
       <Filter>Visual effects</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MusicPlayer.h">
+      <Filter>Sounds and Music</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SoundNode.h">
+      <Filter>Scene nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SoundPlayer.h">
+      <Filter>Sounds and Music</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

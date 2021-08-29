@@ -1,11 +1,11 @@
 #include "Application.h"
 #include "Utility.h"
-#include "SFML/Window/Event.hpp"
 #include "TitleState.h"
 #include "MenuState.h"
 #include "GameState.h"
 #include "PauseState.h"
 #include "SettingsState.h"
+#include "SFML/Window/Event.hpp"
 
 #include <iostream>
 
@@ -13,7 +13,7 @@
 Application::Application()
     : TIME_PER_FRAME(sf::seconds(1.f / 60.f)),
       mWindow(sf::VideoMode(1024, 768), "Sky storm", sf::Style::Close),
-      mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer)),
+      mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer, mMusicPlayer, mSoundPlayer)),
       mStatisticsNumOfFrames(0)
 {
     mWindow.setFramerateLimit(60);
@@ -28,7 +28,6 @@ Application::Application()
 
     registerStates();
     mStateStack.pushState(States::Title);
-
 }
 
 

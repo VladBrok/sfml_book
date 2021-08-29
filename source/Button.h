@@ -1,9 +1,11 @@
 #pragma once
 #include "Component.h"
 #include "ResourceIdentifiers.h"
+#include "State.h"
+#include "SoundPlayer.h"
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
+#include "SFML/Graphics/Sprite.hpp"
+#include "SFML/Graphics/Text.hpp"
 
 #include <functional>
 
@@ -30,7 +32,7 @@ public:
     typedef std::function<void()> Callback;
 
 
-                          Button(const FontHolder& fonts, const TextureHolder& textures);
+                          Button(State::Context context);
 
     virtual void          handleEvent(const sf::Event& event);
 
@@ -57,6 +59,7 @@ private:
     sf::Sprite            mSprite;
     sf::Text              mText;
     bool                  mIsToggle;
+    SoundPlayer           mSounds;
 };
 
 

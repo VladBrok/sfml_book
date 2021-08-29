@@ -9,6 +9,8 @@
 #include "ResourceHolder.h"
 #include "ResourceIdentifiers.h"
 #include "Player.h"
+#include "MusicPlayer.h"
+#include "SoundPlayer.h"
 
 
 class Application
@@ -33,6 +35,8 @@ private:
     TextureHolder       mTextures;
     FontHolder          mFonts;
     Player              mPlayer;
+    MusicPlayer         mMusicPlayer;
+    SoundPlayer         mSoundPlayer;
                         
     StateStack          mStateStack;
                         

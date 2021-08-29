@@ -7,11 +7,15 @@
 State::Context::Context(sf::RenderWindow& window,
                         TextureHolder& textures,
                         FontHolder& fonts,
-                        Player& player)
+                        Player& player,
+                        MusicPlayer& musicPlayer,
+                        SoundPlayer& soundPlayer)
     : window(&window),
       textures(&textures),
       fonts(&fonts),
-      player(&player)
+      player(&player),
+      music(&musicPlayer),
+      sounds(&soundPlayer)
 {
 }
 

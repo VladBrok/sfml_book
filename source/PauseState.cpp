@@ -2,6 +2,7 @@
 #include "ResourceHolder.h"
 #include "Utility.h"
 #include "Button.h"
+#include "MusicPlayer.h"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
 
@@ -18,7 +19,7 @@ PauseState::PauseState(StateStack& stack, Context context)
 	util::centerOrigin(mPauseText);
 	mPauseText.setPosition(0.5f * windowSize.x, 0.4f * windowSize.y);
 
-    auto returnButton = std::make_shared<gui::Button>(*context.fonts, *context.textures);
+    auto returnButton = std::make_shared<gui::Button>(context);
 	returnButton->setPosition(0.5f * windowSize.x - 100, 0.4f * windowSize.y + 75);
 	returnButton->setText("Return");
 	returnButton->setCallback([this] ()
@@ -26,7 +27,7 @@ PauseState::PauseState(StateStack& stack, Context context)
 		requestStackPop();
 	});
 
-	auto backToMenuButton = std::make_shared<gui::Button>(*context.fonts, *context.textures);
+	auto backToMenuButton = std::make_shared<gui::Button>(context);
 	backToMenuButton->setPosition(0.5f * windowSize.x - 100, 0.4f * windowSize.y + 125);
 	backToMenuButton->setText("Back to menu");
 	backToMenuButton->setCallback([this] ()
@@ -37,6 +38,15 @@ PauseState::PauseState(StateStack& stack, Context context)
 
 	mGuiContainer.pack(returnButton);
 	mGuiContainer.pack(backToMenuButton);
+
+
+    context.music->setPaused(true);
+}
+
+
+PauseState::~PauseState()
+{
+    getContext().music->setPaused(false);
 }
 
 

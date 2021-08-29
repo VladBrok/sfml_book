@@ -1,4 +1,4 @@
-﻿Build started 27.08.2021 18:22:46.
+﻿Build started 29.08.2021 13:55:49.
      1>Project "D:\C++ learning\sfml_book\sfml_book.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\VS\VC\bin\CL.exe /c /I"D:\C++ learning\sfml_book\\source" /I"D:\SFML-2.4.2\include" /ZI /nologo /W4 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt source\World.cpp
@@ -20,6 +20,7 @@
          Debug\Label.obj
          Debug\main.obj
          Debug\MenuState.obj
+         Debug\MusicPlayer.obj
          Debug\ParticleNode.obj
          Debug\PauseState.obj
          Debug\Pickup.obj
@@ -28,6 +29,8 @@
          Debug\Projectile.obj
          Debug\SceneNode.obj
          Debug\SettingsState.obj
+         Debug\SoundNode.obj
+         Debug\SoundPlayer.obj
          Debug\SpriteNode.obj
          Debug\State.obj
          Debug\StateStack.obj
@@ -40,4 +43,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.34
+Time Elapsed 00:00:04.11
